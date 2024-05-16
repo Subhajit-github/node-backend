@@ -39,10 +39,47 @@ const github_data = {
   }
 
 
+  const jokes = [
+    {
+        "id": 1,
+        "type": "general",
+        "setup": "What did the ocean say to the beach?",
+        "punchline": "Nothing, it just waved."
+    },
+    {
+        "id": 2,
+        "type": "general",
+        "setup": "Why do bees hum?",
+        "punchline": "Because they don't know the words."
+    },
+    {
+        "id": 3,
+        "type": "general",
+        "setup": "What do you call a bee that can't make up its mind?",
+        "punchline": "A maybe."
+    },
+    {
+        "id": 4,
+        "type": "general",
+        "setup": "What do you call a bear with no teeth?",
+        "punchline": "A gummy bear!"
+    },
+    {
+        "id": 5,
+        "type": "general",
+        "setup": "Why did the chicken cross the road?",
+        "punchline": "To get to the other side!"
+    }
+  ]
+
 app.get('/', (req, res) => {
     res.send('Hello World!');
 })
 
+
+app.get('/api/jokes', (req, res) => {
+    res.json(jokes);
+})
 app.get('/twitter', (req,res) => {
     res.send('Hello Twitter!');
 })
