@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config -e js,json--experimental-json-modules index.js"
+    "dev": "nodemon -r dotenv/config index.js"
   },
   "author": "Subhajit Bhattacharya",
   "license": "ISC",
