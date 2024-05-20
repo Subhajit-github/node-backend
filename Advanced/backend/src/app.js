@@ -44,5 +44,9 @@ req.cookies object, which can be used to access and manipulate cookie data in th
 */
 app.use(cookieParser())
 
+//routes import
+import { userRouter } from './routes/user.routes.js';
 
+//routes declaration
+app.use('api/v1/users', userRouter)
 export { app } 
