@@ -4,9 +4,10 @@ import jwt from "jsonwebtoken"
 import { User } from "../models/user.models.js";
 
 export const verifyJWT = asyncHandler( async (req, res, next) => {
+    console.log(" in verifyJWT");
     try {
-        const token = req.cookie?.accessToken || req.header("Authorization").replace("Bearer ", "")
-    
+        const token = req.cookies?.accessToken || req.header("Authorization").replace("Bearer ", "")
+        console.log("token: ", token);
         if (!token) {
             throw new ApiError(400, {
                 message: "Unauthorized"
@@ -14,7 +15,7 @@ export const verifyJWT = asyncHandler( async (req, res, next) => {
         }
     
         //verify JWT Token
-        const decodedToken = await jwt.verify(token, process.env.ACCES_TOKEN_SECRET)
+        const decodedToken = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
     
         //get user ID
         const user = await User.findById(decodedToken._id).select("-password -refreshToken")
